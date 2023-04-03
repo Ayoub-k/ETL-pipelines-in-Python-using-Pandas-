@@ -8,6 +8,9 @@ pandas = "*"
 boto3 = "*"
 python-dotenv = "*"
 pyarrow = "*"
+pyyaml = "*"
+pylint = "*"
+moto = "*"
 
 [dev-packages]
 ipykernel = "*"

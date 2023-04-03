@@ -1,0 +1,52 @@
+# Logging configuration
+logging:
+  version: 1
+  formatters:
+    transf:
+      format: "ETL Transform - %(asctime)s - %(levelname)s - %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: transf
+      level: DEBUG
+  root:
+    level: DEBUG
+    handlers: [console]
+# Configurattion specific to creating s3 connection
+s3:
+  access_key: 'ACCESS_KEY'
+  secret_key: 'SECRET_ACCESS_KEY'
+  src_endpoint_url: 'https://s3.amazonaws.com'
+  src_bucket: 'xetra-1234'
+  trg_endpoint_url: 'https://s3.amazonaws.com'
+  trg_bucket: 'xetra-data-etl'
+
+# Configuration specific to the source
+source:
+  src_file_extract_date: '2022-03-22'
+  src_columns: ['ISIN', 'Date', 'Time', 'StartPrice', 'MaxPrice', 'MinPrice', 'EndPrice', 'TradedVolume']
+  src_col_date: ''
+  src_col_isin: ''
+  src_col_time: ''
+  src_col_start_price: ''
+  src_col_min_price: ''
+  src_col_max_price: ''
+  src_col_traded_vol: ''
+
+# Configuration specific to the target
+target:
+  trg_col_date: str
+  trg_col_isin: str
+  trg_col_op_price: str
+  trg_col_clos_price: str
+  trg_col_min_price: str
+  trg_col_max_price: str
+  trg_col_dail_trad_vol: str
+  trg_col_ch_prev_clos: str
+  trg_key: 'data_daily_report_1_'
+  trg_key_date_format: '%Y%m%d_%H%M%S'
+  trg_format: 'parquet'
+
+# Configuration specific to the meta faile
+meta:
+ meta_key: 'meta_file.csv' #'meta/report_1/data_report1_meta_file.csv'
