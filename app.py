@@ -1,6 +1,6 @@
 """Runing the ETL application
 """
-import os
+
 import logging
 import logging.config
 import argparse
@@ -22,11 +22,11 @@ def main():
     load_config()
     # Parsing YAML file
     parser = argparse.ArgumentParser(description="Run the ETL")
-    parser.add_argument('config', help='A configuration file in YAML')
+    parser.add_argument('config', help='A configuration file YAML')
     args = parser.parse_args()
     config = yaml.safe_load(open(args.config))
-    
-    
+
+
     # real_path = os.path.dirname(os.path.realpath('__file__'))
     # config_path = f"{real_path}/configs/report_one_config.yaml"
     # config = yaml.safe_load(open(config_path))
