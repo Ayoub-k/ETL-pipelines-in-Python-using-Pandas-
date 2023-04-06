@@ -49,7 +49,7 @@ class TestS3BucketConnector(unittest.TestCase):
         Returns:
             _type_: _description_
         """
-        # mocking s3 connedion stop 
+        # mocking s3 connedion stop
         self.mock_s3.stop()
 
     def test_list_files_in_prefix_ok(self):
@@ -94,7 +94,7 @@ class TestS3BucketConnector(unittest.TestCase):
         prefix_exp = 'prefix/'
         # Method execution
         list_result = self.s3_bucket_conn.list_files_in_prefix(prefix=prefix_exp)
-        # Test after execution method 
+        # Test after execution method
         self.assertTrue(not list_result)
 
 if __name__ == '__main__':
